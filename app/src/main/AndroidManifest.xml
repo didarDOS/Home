@@ -10,9 +10,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Home">
         <activity android:name=".MainActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
 
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />һ
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
