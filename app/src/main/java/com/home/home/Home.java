@@ -21,8 +21,8 @@ public class Home extends AppCompatActivity {
         setContentView(R.layout.activity_home);
         carouselView = (CarouselView) findViewById(R.id.carouselView);
         carouselView.setPageCount(sampleImages.length);
-
         carouselView.setImageListener(imageListener);
+        carouselView.setPadding(10,0,10,0);
 
     }
 
