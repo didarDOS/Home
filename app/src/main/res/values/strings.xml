@@ -4,12 +4,10 @@
     <string name="control_your_home">Control your home</string>
     <string name="own_your_home_appliances_with_controls_right_from_your_smartphone">Own your home appliances with controls right from your smartphone</string>
     <string name="edit_button">edit</string>
-    <string name="living_room">Living Room</string>
-    <string name="kitchen">Kitchen</string>
-    <string name="bedroom">Bedroom</string>
     <string name="lighting">Lighting</string>
     <string name="lighting_percent">70%</string>
     <string name="thermostat">Thermostat</string>
     <string name="humidity">Humidity</string>
     <string name="temperature">20°C</string>
+    <string name="rooms">rooms</string>
 </resources>

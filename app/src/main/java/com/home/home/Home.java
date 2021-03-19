@@ -1,36 +1,34 @@
 package com.home.home;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.viewpager2.widget.ViewPager2;
 
 import android.os.Bundle;
-import android.widget.ImageView;
-
-import com.synnapps.carouselview.CarouselView;
-import com.synnapps.carouselview.ImageListener;
+import android.widget.Button;
 
 import java.util.ArrayList;
 
 public class Home extends AppCompatActivity {
 
-    CarouselView carouselView;
-    int[] sampleImages = {R.drawable.bedroom, R.drawable.living_room};
+    ViewPager2 myViewPager2;
+    RoomsButtonAdapter roomsButtonAdapter;
+
+    //ArrayList<Button> rooms = new ArrayList<>();
+    Button rooms = findViewById(R.id.rooms);
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
-        carouselView = (CarouselView) findViewById(R.id.carouselView);
-        carouselView.setPageCount(sampleImages.length);
-        carouselView.setImageListener(imageListener);
-        carouselView.setPadding(10,0,10,0);
+
+        myViewPager2 = findViewById(R.id.viewPagerRooms);
+        roomsButtonAdapter = new RoomsButtonAdapter(rooms);
+        myViewPager2.setOrientation(ViewPager2.ORIENTATION_HORIZONTAL);
+        myViewPager2.setAdapter(roomsButtonAdapter);
+        myViewPager2.setOffscreenPageLimit(3);
 
     }
 
-    ImageListener imageListener = new ImageListener() {
-        @Override
-        public void setImageForPosition(int position, ImageView imageView) {
-            imageView.setImageResource(sampleImages[position]);
-        }
-    };
+
 
 }
