@@ -1,25 +1,28 @@
-package com.home.home;
+package com.home.home.ui;
 
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.ImageView;
-import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.home.home.R;
+import com.home.home.classes.Rooms;
+
 import java.util.ArrayList;
 
-class RoomsButtonAdapter extends RecyclerView.Adapter<RoomsButtonAdapter.RoomsButtonViewHolder> {
+public class RoomsButtonAdapter extends RecyclerView.Adapter<RoomsButtonAdapter.RoomsButtonViewHolder> {
 
+
+    private Context context;
     //создаем массив кнопок
-    private ArrayList<Button> rooms;
+    private ArrayList<Rooms> rooms;
 
-
-    public RoomsButtonAdapter(Button rooms) {
+    public RoomsButtonAdapter(Context context, ArrayList<Rooms> rooms) {
+        this.context = context;
         this.rooms = rooms;
     }
 
@@ -27,14 +30,13 @@ class RoomsButtonAdapter extends RecyclerView.Adapter<RoomsButtonAdapter.RoomsBu
     @Override
     //Возьмем макет и передаем в качестве аргумента
     public RoomsButtonViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.button_item, parent, false);
+        View view = LayoutInflater.from(context).inflate(R.layout.button_item, parent, false);
         return new RoomsButtonViewHolder(view);
     }
 
     @Override
     public void onBindViewHolder(@NonNull RoomsButtonViewHolder holder, int position) {
-        Button room = rooms.get(position);
-        holder.rooms.setText(position);
+        holder.button_rooms.setText(rooms.get(position).getName());
     }
 
     @Override
@@ -45,12 +47,12 @@ class RoomsButtonAdapter extends RecyclerView.Adapter<RoomsButtonAdapter.RoomsBu
     //Создаем Держатель видимых вещей
     public class RoomsButtonViewHolder extends RecyclerView.ViewHolder{
 
-        private Button rooms;
+        private Button button_rooms;
 
         public RoomsButtonViewHolder(@NonNull View itemView) {
             super(itemView);
             //Присвоим кнопку
-            rooms = itemView.findViewById(R.id.rooms);
+            button_rooms = itemView.findViewById(R.id.button_rooms);
         }
     }
 }
