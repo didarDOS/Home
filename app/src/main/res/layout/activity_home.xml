@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Home">
+    tools:context=".ui.activities.Home">
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -13,56 +13,50 @@
         tools:layout_editor_absoluteX="-16dp"
         tools:layout_editor_absoluteY="0dp">
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
+
+        <Button
+            android:id="@+id/plus"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_alignParentEnd="true"
             android:layout_marginTop="73dp"
-            android:weightSum="2"
-
-            >
-
-            <Button
-                android:id="@+id/edit"
-                android:layout_width="78dp"
-                android:layout_height="24dp"
-                android:layout_marginLeft="242dp"
-                android:layout_weight="1"
-                android:background="@drawable/edit_button_background"
-                android:text="@string/edit_button" />
-            <Button
-                android:id="@+id/plus"
-                android:layout_width="24dp"
-                android:layout_height="24dp"
-                android:layout_marginLeft="16dp"
-
-                android:background="@drawable/plus" />
+            android:layout_marginEnd="16dp"
+            android:background="@drawable/plus" />
 
 
-        </LinearLayout>
-
-
+        <Button
+            android:id="@+id/edit"
+            android:layout_width="78dp"
+            android:layout_height="24dp"
+            android:layout_alignTop="@+id/plus"
+            android:layout_marginTop="0dp"
+            android:layout_marginEnd="16dp"
+            android:layout_toStartOf="@+id/plus"
+            android:layout_weight="1"
+            android:background="@color/black"
+            android:text="@string/edit_button" />
 
 
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="127dp"
             android:layout_marginLeft="15dp"
-            android:weightSum="3"
-            android:orientation="horizontal">
+            android:layout_marginTop="127dp"
+            android:orientation="horizontal"
+            android:weightSum="3">
 
             <ImageView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:src="@drawable/profile_photo"
-                android:layout_weight="1"/>
+                android:layout_weight="1"
+                android:src="@drawable/profile_photo" />
 
             <LinearLayout
                 android:layout_width="172dp"
                 android:layout_height="52dp"
-                android:weightSum="2"
-                android:orientation="vertical">
+                android:layout_marginLeft="13dp"
+                android:orientation="vertical"
+                android:weightSum="2">
 
                 <TextView
                     android:id="@+id/user_name"
@@ -84,226 +78,84 @@
                     app:layout_constraintTop_toTopOf="parent" />
 
             </LinearLayout>
-        </LinearLayout>
-
-            <LinearLayout
-            android:id="@+id/linearLayout"
-            android:layout_width="415dp"
-            android:layout_height="213dp"
-            android:layout_marginTop="212dp"
-            android:orientation="vertical"
-            android:weightSum="3"
-            tools:layout_editor_absoluteX="-2dp">
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="32dp"
-                android:orientation="horizontal"
-                android:paddingLeft="2dp"
-                android:paddingTop="2dp"
-                android:paddingRight="2dp"
-                android:weightSum="2"
-                android:paddingBottom="2dp">
-
-                <TextView
-                    android:id="@+id/cameras"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="0.8"
-                    android:gravity="left"
-                    android:text="Cameras"
-                    android:textFontWeight="1"
-                    android:textSize="18dp" />
-
-                <TextView
-                    android:id="@+id/all_cameras"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="0.2"
-                    android:clickable="true"
-                    android:gravity="right"
-                    android:paddingRight="20dp"
-                    android:textFontWeight="1"
-                    android:text="All"
-                    android:textSize="18dp" />
-
-
-            </LinearLayout>
-
-            <androidx.viewpager2.widget.ViewPager2
-                android:id="@+id/viewPagerCamerasSlider"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_marginTop="5dp"
-                android:paddingStart="80dp"
-                android:paddingEnd="80dp"
-                />
-
-
 
         </LinearLayout>
 
-        <LinearLayout
-            android:layout_width="match_parent"
+
+        <TextView
+            android:id="@+id/cameras"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:weightSum="6"
-            android:layout_marginTop="522dp"
+            android:layout_marginTop = "212dp"
+            android:layout_marginLeft="15dp"
+            android:text="Cameras"
+            android:textFontWeight="1"
+            android:textSize="18sp" />
 
-            >
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:paddingLeft="15dp"
-                android:paddingRight="15dp"
-                android:layout_weight="1"
+        <TextView
+            android:id="@+id/all_cameras"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_marginTop="212dp"
+            android:layout_marginEnd="15dp"
+            android:clickable="true"
+            android:text="@string/all"
+            android:textFontWeight="1"
+            android:textSize="18sp" />
 
-                >
+        <androidx.viewpager2.widget.ViewPager2
+            android:id="@+id/viewPagerCamerasSlider"
+            android:layout_width="match_parent"
+            android:layout_height="203dp"
+            android:layout_below="@+id/cameras"
+            android:layout_marginTop="10dp" />
 
-                <TextView
-                    android:id="@+id/rooms"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Rooms"
-                    android:textSize="24dp"
-                    />
-                <Space
-                    android:layout_width="267dp"
-                    android:layout_height="wrap_content"/>
+        <TextView
+            android:id="@+id/rooms"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
 
-                <TextView
-                    android:id="@+id/all_rooms"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="All"
-                    />
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="270dp"
+            android:layout_marginLeft="15dp"
+            android:text="Rooms"
+            android:textSize="24dp" />
 
-            </LinearLayout>
+        <TextView
+            android:id="@+id/all_rooms"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginStart="15dp"
+            android:layout_marginEnd="15dp"
+            android:layout_marginBottom="270dp"
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="39dp"
-                android:layout_marginTop="15dp"
-                android:layout_weight="1"
-                android:orientation="horizontal"
-                android:paddingLeft="15dp"
-                android:paddingRight="15dp">
+            android:textSize="24dp"
+            android:text="All" />
 
-                <androidx.viewpager2.widget.ViewPager2
-                    android:id="@+id/viewPagerRooms"
-                    android:layout_width="match_parent"
-                    android:layout_height="39dp"
-                    android:layout_marginTop="5dp"/>
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/buttonRecyclerView"
+            android:layout_width="match_parent"
+            android:layout_height="39dp"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="216dp"
+            android:orientation="horizontal"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"/>
 
-            </LinearLayout>
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:paddingLeft="15dp"
-                android:paddingRight="15dp"
-                android:layout_marginTop="25dp"
-                android:layout_weight="1"
-                android:weightSum="3"
-                >
-                <LinearLayout
-                    android:layout_width="116dp"
-                    android:layout_height="139dp"
-                    android:orientation="vertical"
-
-
-
-                    >
-                    <ImageView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:src="@drawable/lighting"
-                        android:layout_marginTop="22dp"
-                        android:layout_marginLeft="10dp"
-                        />
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="@string/lighting"
-                        android:layout_marginTop="35dp"
-                        android:layout_marginLeft="10dp"
-                        />
-                    <TextView
-                        android:id="@+id/lighting_room"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="@string/lighting_percent"
-                        android:layout_marginTop="8dp"
-                        android:layout_marginLeft="10dp"/>
-                </LinearLayout>
-                <LinearLayout
-                    android:layout_width="116dp"
-                    android:layout_height="139dp"
-                    android:orientation="vertical"
-                    android:layout_weight="1"
-                    android:layout_marginStart="10dp"
-                    >
-                    <ImageView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:src="@drawable/thermostat"
-                        android:layout_marginTop="22dp"
-                        android:layout_marginLeft="10dp"
-                        />
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="@string/thermostat"
-                        android:layout_marginTop="35dp"
-                        android:layout_marginLeft="10dp"
-                        />
-                    <TextView
-                        android:id="@+id/thermostat_room"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="@string/temperature"
-                        android:layout_marginTop="8dp"
-                        android:layout_marginLeft="10dp"/>
-                </LinearLayout>
-                <LinearLayout
-                    android:layout_width="116dp"
-                    android:layout_height="139dp"
-                    android:orientation="vertical"
-                    android:layout_weight="1"
-                    android:layout_marginStart="10dp"
-                    >
-                    <ImageView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:src="@drawable/humidity"
-                        android:layout_marginTop="22dp"
-                        android:layout_marginLeft="10dp"
-                        />
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="@string/humidity"
-                        android:layout_marginTop="35dp"
-                        android:layout_marginLeft="10dp"
-                        />
-                    <TextView
-                        android:id="@+id/humidity_room"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="@string/lighting_percent"
-                        android:layout_marginTop="8dp"
-                        android:layout_marginLeft="10dp"/>
-                </LinearLayout>
-
-            </LinearLayout>
-
-
-        </LinearLayout>
-
-
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/roomParameterItem"
+            android:layout_width="match_parent"
+            android:layout_height="139dp"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="34dp"
+            android:orientation="horizontal"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"/>
 
     </RelativeLayout>
-
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

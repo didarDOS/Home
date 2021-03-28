@@ -1,4 +1,4 @@
-package com.home.home.ui;
+package com.home.home.ui.adapters;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -10,7 +10,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.home.home.R;
-import com.home.home.classes.Rooms;
+import com.home.home.models.Rooms;
 
 import java.util.ArrayList;
 
@@ -30,7 +30,7 @@ public class RoomsButtonAdapter extends RecyclerView.Adapter<RoomsButtonAdapter.
     @Override
     //Возьмем макет и передаем в качестве аргумента
     public RoomsButtonViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(context).inflate(R.layout.button_item, parent, false);
+        View view = LayoutInflater.from(context).inflate(R.layout.button_room, parent, false);
         return new RoomsButtonViewHolder(view);
     }
 
@@ -52,7 +52,7 @@ public class RoomsButtonAdapter extends RecyclerView.Adapter<RoomsButtonAdapter.
         public RoomsButtonViewHolder(@NonNull View itemView) {
             super(itemView);
             //Присвоим кнопку
-            button_rooms = itemView.findViewById(R.id.button_rooms);
+            button_rooms = itemView.findViewById(R.id.btn_room);
         }
     }
 }

@@ -11,4 +11,5 @@
     <string name="temperature">20°C</string>
     <string name="rooms">rooms</string>
     <string name="living_room">Living room</string>
+    <string name="all">All</string>
 </resources>
